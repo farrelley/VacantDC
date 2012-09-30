@@ -1,0 +1,21 @@
+<a href="
+<?php echo $this->url(
+	array( 
+		'controller'=>'property', 
+		'action'=>'image',
+		'module'=>'default',
+		'id'=>$this->Id
+	), 
+	'default',
+	true);  ?>" rel="lightbox">
+
+<img src="<?php echo $this->url(
+	array( 
+		'controller'=>'property', 
+		'action'=>'image',
+		'module'=>'default',
+		'id'=>$this->Id
+	), 
+	'default',
+	true);  ?>" height="80px" width="80px"/>
+</a>

@@ -1,0 +1,42 @@
+<div id="intro">
+	<p>Suspendisse egestas fringilla odio. Donec lacinia tristique ante. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+</div>
+	
+<div id="main-search">
+	<h2><a href="#">Search Vacant Properties By:</a></h2>
+	
+	<div class="search-section padit">
+		<h3>Searching By One</h3>
+		<div style="border:1px solid #CCC;">
+			<img src="images/map.gif" width="280" height="100" />
+			<p>Suspendisse egestas fringilla odio. Donec lacinia tristique ante. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam blandit ultricies nisl. Nullam dapibus, mauris id scelerisque feugiat, sapien augue porta ipsum, ut blandit tellus enim vel mauris. Praesent accumsan metus vel ipsum. Maecenas aliquam blandit mi. Pellentesque dolor magna, posuere vel, condimentum id.</p>
+		</div>
+	</div>
+			
+	<div class="search-section padit">
+		<h3>Searching By Two</h3>
+		<div style="border:1px solid #CCC;">
+			<img src="images/vacant.gif" />
+			<p>Suspendisse egestas fringilla odio. Donec lacinia tristique ante. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam blandit ultricies nisl. Nullam dapibus, mauris id scelerisque feugiat, sapien augue porta ipsum, ut blandit tellus enim vel mauris.
+			<?php if(null !== $this->addressMessage) : ?>
+				<ul>
+				<?php foreach($this->addressMessage as $msg) : ?>
+					<li><?php echo $msg; ?></li>
+				<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+			<?php echo $this->addressSearchForm; ?>
+			</p>
+		</div>
+	</div>
+	
+	<div class="search-section">
+		<h3>Searching By Three</h3>
+		<div style="border:1px solid #CCC;">
+			<img src="images/owner.gif" width="280" height="100" />
+			<p>Suspendisse egestas fringilla odio. Donec lacinia tristique ante. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam blandit ultricies nisl. Nullam dapibus, mauris id scelerisque feugiat, sapien augue porta ipsum, ut blandit tellus enim vel mauris. Praesent accumsan metus vel ipsum. 
+			<?php echo $this->ownerSearchForm; ?>
+			</p>
+		</div>
+	</div>
+</div>

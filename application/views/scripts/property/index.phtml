@@ -1,0 +1,35 @@
+
+<div id="main-search">
+	<h2><a href="#">View Properties By</a></h2>
+	<dl>
+		<dt>List All</dt>
+		<dd>
+		<a href="<?php echo $this->url(
+			array(
+				'module' => 'default', 
+				'controller' => 'property', 
+				'action' => 'list',
+				'all' => '',
+			), 
+			'', 
+			true
+		); ?>">
+		All Properties</a>
+		</dd>
+		<br />
+		
+		<dt>Ward</dt>
+		<?php $wards = $this->partialLoop('property/_wardList.phtml', $this->wards); ?>
+		<dd> <?php echo substr($wards,0, -1); ?></dd>
+		<br />
+		
+		<dt>Zip Codes:</dt>
+		<dd><?php $zipcodes = $this->partialLoop('property/_zipcodeList.phtml', $this->zipcodes); ?></dd>
+		<dd> <?php echo substr($zipcodes, 0, -1); ?></dd>
+		<br />
+		
+		<dt>Quadrant</dt>
+		<dd><?php $quadrants = $this->partialLoop('property/_quadrantList.phtml', $this->quadrants); ?></dd>
+		<dd> <?php echo substr($quadrants, 0, -1); ?></dd>
+	</dl>
+</div>

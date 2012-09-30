@@ -1,0 +1,12 @@
+VacantDC was built for the 2nd Apps for Democracy.
+VacantDC shows vacant buildings in DC and it's property owner.  You can filter down to see other listings that the owner has that are vacnt too.
+
+Requires Zend Framework 1.X
+Requires new Data pulled from DCRA
+
+
+Depending on where your Code lives you will have to adjust the index.php file.
+You will need to modify application/configs/application.ini
+Update Zend_Mail_Transport_Smtp in Auth Controller
+Apps09_Api_Zillow - Update with Zillow API Id
+Apps09_Api_Open311 = Update with Open311 key

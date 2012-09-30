@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+    <nav>
+        <label>Home</label>
+        <uri>/</uri>
+        <pages>
+            <submit>
+                <label>Submit Vacant Lot</label>
+                <uri>property/submit</uri>
+            </submit>
+            <blog>
+                <label>Blog</label>
+                <uri>http://blog.vacantdc.com/</uri>
+            </blog>
+        </pages>
+    </nav>
+</configdata>

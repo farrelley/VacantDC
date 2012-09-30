@@ -1,0 +1,37 @@
+<div id="main-search">
+<h2><a href="">My Account</a></h2>
+<?php
+if($this->messages !== null) {
+	echo "<div class='message'>{$this->messages}</div><br /><br />";
+}
+?>
+<div>
+	<!-- a href="<?php echo $this->url(array('action' => 'edit')); ?>">Edit Account</a> | --> 
+	<a href="<?php echo $this->url(array('action' => 'changepass')); ?>">Change Password</a>
+</div><br />
+
+<table>
+	<tr><td>First Name:</td><td><?php echo $this->identity['First_Name']; ?></td></tr>
+	<tr><td>Last Name:</td><td><?php echo $this->identity['Last_Name']; ?></td></tr>
+	<tr><td>E-mail Address:</td><td><?php echo $this->identity['Email_Address']; ?></td></tr>
+</table>
+<br />
+
+<div style="margin-top:20px;">
+	<h3>Submitted Properties</h3>
+	<table>
+	<tr> 
+		<td>Id</td>
+		<td>SSL</td>
+		<td>Address Id</td>
+		<td>Submitted</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<?php echo $this->partialLoop('account/_submittedLots.phtml', $this->submittedLots); ?>
+	</table>
+</div>
+
+</div>
+
+

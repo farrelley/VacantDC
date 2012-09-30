@@ -1,0 +1,8 @@
+
+<div id="main-search">
+	<h2><a href="">Address Results</a></h2>
+	<p>Multiple vacant houses have been returned.  Please pick one from the list below.</p>
+		<ol>
+		<?php echo $this->partialLoop('property/_propertyName.phtml', $this->results); ?>
+	</ol>
+</div>

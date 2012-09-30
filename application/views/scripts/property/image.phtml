@@ -1,0 +1,8 @@
+<?php
+header('Content-Type: ' . $this->Content_Type);
+
+header('Content-Transfer-Encodeing: binary');
+header('Cache-Control: non-cache');
+header('Expires: -1');
+
+print base64_decode($this->Photograph);

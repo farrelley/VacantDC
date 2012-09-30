@@ -1,0 +1,15 @@
+<div id="main-search">
+
+<h2><a href="">User Photos of 
+	<?php echo $this->address['Address_Number']; ?> 
+	<?php echo ucwords(strtolower($this->address['Street_Name'])); ?> 
+	<?php echo ucwords(strtolower($this->address['Street_Type'])); ?> 
+	<?php echo $this->address['Quadrant']; ?></a></h2>
+	
+	<p><a href="<?php echo $this->url(array(
+		'controller'=>'property', 
+		'action'=>'view',
+		'module'=>'default',
+		'ssl'=>$this->ssl,),'default', true); ?>">&laquo; Back to Property Data</a></p>
+	<?php echo $this->partialLoop('property/_sidebarPhotos.phtml', $this->userPhotos); ?>
+</div>

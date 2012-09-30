@@ -1,0 +1,45 @@
+<div id="main-search">
+<h2><a href="#"><?php echo $this->title;?></a></h2>
+<?php 
+
+if($this->status !== true) {
+	echo "<p>If you know of a vacant property that you would like to submit please fill out the form below.  You will be asked to verify the property before submission.</p>";
+	echo $this->addressSearchForm;
+} 
+
+if($this->status === true) {
+	if($this->data['SSL'] == "") {
+		echo "<p>Unable to find the requested address.  Please Make sure you have entered the address correctly.</p>";
+		echo $this->addressSearchForm;
+	} else {
+		echo "<p>Ok, This address is not listed in the system.  We have aquired some information including the address of this
+		potential vacant property.  Please verify that this is the correct address.</p>";
+		
+		echo "<p>Once you have submitted a vacant property you will be able to check its status in the <a href='" . $this->url(array(
+			'controller'=>'account',
+			'action'=>'index',
+			'module'=>'default'), 'default', true) . "'>My Account</a> section.</p>";
+		
+		echo "<table>";
+		echo "<tr> <td><b>Address: </b></td> <td>" . $this->data['Full_Address'] . "</td> </tr>";
+		echo "<tr> <td><b>SSL:</td> <td>" . $this->data['SSL'] . "</td></tr>";
+		echo "<tr> <td><b>Address ID:</b></td> <td>" . $this->data['Address_Id'] . "</td></tr>";
+		if($this->data['Photo'] != "")
+			echo "<tr> <td>&nbsp;</td> <td><img src='" . $this->data['Photo'] . "' alt='' width='300px' height='250px' /></td> </tr>";
+			
+		echo "<tr> <td>&nbsp;</td> <td><a href='" . $this->url(array(
+			'contrller' => 'property',
+			'action' => 'processsubmit',
+			'module' => 'default',
+			'ssl' => $this->data['SSL'],
+			'aid' => $this->data['Address_Id'])) . "'><input type='button' value='Submit Property' /></a></td> </tr>";
+		echo "</table>";
+	}
+}
+else if($this->status === false) {
+	echo "<p>This address " . $this->data['Full_Address'] . " is already listed as a vacant property in DC. </p>";
+}
+?>
+
+	
+</div>

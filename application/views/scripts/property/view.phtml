@@ -1,0 +1,218 @@
+<?php
+$auth = Zend_Auth::getInstance();
+if($auth->hasIdentity()) {
+	$identity = $auth->getIdentity();
+}
+?>
+
+<div id="left">
+	<!-- Address Title -->
+	<h2><a href="#">
+		<?php echo $this->propertyData['Address_Number'] . " "
+		 . ucwords(strtolower($this->propertyData['Street_Name'])) . " " 
+		 . ucwords(strtolower($this->propertyData['Street_Type'])) . " "
+		 . strtoupper($this->propertyData['Quadrant']); ?>
+	</a></h2>
+	
+	<div class="tabber">
+		<div class="tabbertab">
+			<h2>General</h2>
+			<table>
+			<tr> <td>Property Type:</td> <td><?php echo $this->propertyData["Property_Type"]; ?></td> </tr>
+			<tr> <td>Square:</td> <td><?php echo $this->propertyData["Square"];?></td> </tr>
+			<tr> <td>Suffix:</td> <td><?php echo $this->propertyData["Suffix"];?></td> </tr>
+			<tr> <td>Lot:</td> <td><?php echo $this->propertyData["Lot"];?></td> </tr>
+			<tr> <td>Address Id:</td> <td><?php echo $this->propertyData["Address_Id"];?></td> </tr>
+			<tr> <td>National Grid:</td> <td><?php echo $this->propertyData["National_Grid"];?></td> </tr>
+			<tr> <td>Roadway Segment:</td> <td><?php echo $this->propertyData["Roadway_Segment"];?></td> </tr>
+			<tr> <td>Last Sale Price:</td> <td><?php echo $this->propertyData["Sale_Price"];?></td> </tr>
+			<tr> <td>Last Sale Date:</td> <td><?php echo $this->propertyData["Sale_Date"];?></td> </tr>		
+		</table>
+		</div>
+		
+		<div class="tabbertab">
+			<h2>Owner</h2>
+			<table>
+			<tr> <td>Owner:</td> <td><?php echo ucwords(strtolower($this->propertyData['Owner_Name'])); ?></td> </tr>
+			<?php if(trim($this->propertyData['Care_Of_Name']) != "") { ?>
+				<tr> <td>Care of:</td> <td><?php echo ucwords(strtolower($this->propertyData['Care_Of_Name'])); ?></td> </tr>
+			<?php } ?>
+			<tr> <td>Address:</td> <td><?php echo ucwords(strtolower($this->propertyData['Address_1'])); ?></td> </tr>
+			<?php if(trim($this->propertyData['Address_2']) != "") { ?>
+				<tr> <td>&nbsp;</td> <td><?php echo $this->propertyData['Address_2']; ?></td> </tr>
+			<?php } ?>
+			<tr> <td>&nbsp;</td> <td><?php echo ucwords(strtolower($this->propertyData['City_State_Zip'])); ?></td> </tr>
+			</table>
+			<?php if($this->ownerProperties) { ?>
+			<h4>Owners Other Vacant Properties</h4>
+			<table>
+				<?php echo $this->partialLoop('property/_ownerProperties.phtml', $this->ownerProperties); ?>
+			</table>
+			<?php }?>
+		</div>
+		
+		<div class="tabbertab">
+			<h2>Location</h2>
+			<table>
+			<tr> <td>Neighborhood:</td> <td><?php echo ucwords(strtolower($this->propertyData['Neighborhood_Name'])); ?></td> </tr>
+			<tr> <td>Voter Precinct:</td> <td><?php echo ucwords(strtolower($this->propertyData['Voter_Precinct'])); ?></td> </tr>
+			<tr> <td>ANC:</td> <td><?php echo ucwords(strtolower($this->propertyData['ANC'])); ?></td> </tr>
+			<tr> <td>PSA:</td> <td><?php echo ucwords(strtolower($this->propertyData['PSA'])); ?></td> </tr>
+			<tr> <td>Ward:</td> <td><?php echo ucwords(strtolower($this->propertyData['Ward'])); ?></td> </tr>
+			<tr> <td>Police District:</td> <td><?php echo ucwords(strtolower($this->propertyData['Police_District'])); ?></td> </tr>
+			<tr> <td>Cluster:</td> <td><?php echo ucwords(strtolower($this->propertyData['Cluster'])); ?></td> </tr>
+			<tr> <td>SMD:</td> <td><?php echo ucwords(strtolower($this->propertyData['SMD'])); ?></td> </tr>
+			</table>
+		</div>
+		
+		<div class="tabbertab">
+			<h2>Assessment</h2>
+			<table>
+				<tr> <td>Property Use Code:</td> <td><?php echo $this->propertyData["Description"]; ?></td> </tr>
+				<tr> <td>Property Land Area:</td> <td><?php echo $this->propertyData["Land_Area"]; ?></td> </tr>			
+				<tr> <td>Current Land:</td> <td><?php echo $this->propertyData["Current_Land"]; ?></td> </tr>
+				<tr> <td>Current Improvements:</td> <td><?php echo $this->propertyData["Current_Improvements"]; ?></td> </tr>
+				<tr> <td>Current Total:</td> <td><?php echo $this->propertyData["Current_Total"]; ?></td> </tr>
+				<tr> <td>Phase In Land:</td> <td><?php echo $this->propertyData["Current_Phasein_Land"]; ?></td> </tr>
+				<tr> <td>Phase In Building:</td> <td><?php echo $this->propertyData["Current_Phasein_Building"]; ?></td> </tr>
+				<tr> <td>Tax Type:</td> <td>
+					<?php 
+						if($this->propertyData["Tax_Code_Description"] == "")
+							 echo $this->propertyData["Tax_Type_Etc"];
+						else
+							echo $this->propertyData["Tax_Code_Description"];
+					?>
+				</td> </tr>
+				<tr> <td>Tax Rate:</td> <td><?php echo $this->propertyData["Tax_Rate"]; ?> (Tax Rate per $100)</td> </tr>
+			</table>
+		</div>
+		
+		<div class="tabbertab">
+			<h2>Property</h2>
+			<table>
+			<tr> <td>Has Condos:</td> <td><?php echo $this->propertyData["Has_Condos"]; ?></td> </tr>
+			<tr> <td>Has Residentail:</td> <td><?php echo $this->propertyData["Has_Residential"]; ?></td> </tr>	
+			<!-- tr> <td>Name:</td> <td><?php echo $this->propertyData["name"]; ?></td> </tr -->
+			<tr> <td>Property Unit Number:</td> <td><?php echo $this->propertyData["unit_number"]; ?></td> </tr>
+			<!-- tr> <td>Section Number:</td> <td><?php echo $this->propertyData["section_number"]; ?></td> </tr -->
+			<tr> <td>Number of Units:</td> <td><?php echo $this->propertyData["num_units"]; ?></td> </tr>
+			<tr> <td>Actual Year Built:</td> <td><?php echo $this->propertyData["ayb"]; ?></td> </tr>
+			<tr> <td>Year Remodeled:</td> <td><?php echo $this->propertyData["yr_rmdl"]; ?></td> </tr>
+			<tr> <td>Effective Year Built:</td> <td><?php echo $this->propertyData["eyb"]; ?></td> </tr>
+			<tr> <td>Complex Number</td> <td><?php echo $this->propertyData["cmplx_num"]; ?></td> </tr>
+			<tr> <td>Gross Building Area:</td> <td><?php echo $this->propertyData["gba"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["struct_cl"]; ?></td> </tr -->
+			<tr> <td>Structure Condition</td> <td><?php echo $this->propertyData["struct_cl_d"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["grade"]; ?></td> </tr -->
+			<tr> <td>Property Grade Description</td> <td><?php echo $this->propertyData["grade_d"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["extwall"]; ?></td> </tr -->
+			<tr> <td>Exterior Finish Description:</td> <td><?php echo $this->propertyData["extwall_d"]; ?></td> </tr>
+			<tr> <td>Wall Height</td> <td><?php echo $this->propertyData["wall_hgt"]; ?></td> </tr>
+			<tr> <td>Number of Rooms:</td> <td><?php echo $this->propertyData["rooms"]; ?></td> </tr>
+			<tr> <td>Number of Bedrooms:</td> <td><?php echo $this->propertyData["bedrm"]; ?></td> </tr>
+			<tr> <td>Number of Full Bathrooms:</td> <td><?php echo $this->propertyData["bathrm"]; ?></td> </tr>
+			<tr> <td>Number of Half Bathrooms</td> <td><?php echo $this->propertyData["hf_bathrm"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["heat"]; ?></td> </tr -->
+			<tr> <td>Heat Type Description:</td> <td><?php echo $this->propertyData["heat_d"]; ?></td> </tr>
+			<tr> <td>AC</td> <td><?php echo $this->propertyData["ac"]; ?></td> </tr>
+			<tr> <td>Number of Fireplaces:</td> <td><?php echo $this->propertyData["fireplaces"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["style"]; ?></td> </tr -->
+			<tr> <td>Style</td> <td><?php echo $this->propertyData["style_d"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["struct"]; ?></td> </tr -->
+			<tr> <td>Building Style Description:</td> <td><?php echo $this->propertyData["struct_d"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["cndtn"]; ?></td> </tr -->
+			<tr> <td>Property Condition Description</td> <td><?php echo $this->propertyData["cndtn_d"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["roof"]; ?></td> </tr -->
+			<tr> <td>Roof Cover Description</td> <td><?php echo $this->propertyData["roof_d"]; ?></td> </tr>
+			<!-- tr> <td></td> <td><?php echo $this->propertyData["intwall"]; ?></td> </tr -->
+			<tr> <td>Interior Floor Description:</td> <td><?php echo $this->propertyData["intwall_d"]; ?></td> </tr>
+			<tr> <td>Number of Kitchens</td> <td><?php echo $this->propertyData["kitchens"]; ?></td> </tr>
+			<tr> <td>Number of Stories:</td> <td><?php echo $this->propertyData["stories"]; ?></td> </tr>
+			</table>
+		</div>
+		
+		
+	
+		<div class="tabbertab">
+			<h2>Stats</h2>
+			<h4>Home Sales in Zip Code <?php echo $this->propertyData['Zipcode']?></h4>
+			<img src="<?php echo $this->ZillowSalesChart; ?>" alt="Sales" />
+		</div>
+		
+	
+	
+	
+	</div>
+	<br /><br />
+
+	<!-- Comments only viewable by authenicated users -->
+	<h3>Comments</h3>
+	<?php if(!$identity) echo "<div style='margin:20px'><a href='" . $this->url(array('controller'=>'auth', 'action'=>'login', 'module'=>'default'), 'default', true) . "'>Login</a> or <a href='" . $this->url(array('controller'=>'auth', 'action'=>'add', 'module'=>'default'), 'default', true) . "'>Sign Up</a> to post Comments and upload Photos of this Property</div>"; ?>
+	<?php if(!$this->comments) {
+		echo "No Comments Yet!";
+	} else { ?>
+		<ol class ="commentlist">
+			<?php echo $this->partialLoop('property/_comments.phtml', $this->comments); ?>
+		</ol>
+	<?php } ?>
+	
+	
+	
+	
+</div>
+
+<div id="right">
+<!-- start addthis.com -->
+<div style="margin-bottom:10px; margin-left:20px;" class="addthis_toolbox addthis_default_style">
+    <a class="addthis_button_email" title="Email"></a>
+    <a class="addthis_button_print" title="Print"></a>
+    <a class="addthis_button_twitter" title="Tweet This"></a>
+    <a class="addthis_button_facebook" title="Share to Facebook"></a>
+    <a class="addthis_button_myspace" title="Share to MySpace"></a>
+    <a class="addthis_button_stumbleupon" title="StumbleUpon"></a>
+    <a class="addthis_button_digg" title="Digg This"></a>
+    <span class="addthis_separator">|</span>
+    <a class="addthis_button_expanded" title="More Choices">More</a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a4cc58d56e3c36c"></script>
+<!-- end addthis.com -->
+	<img src="http://maps.google.com/staticmap?center=<?php echo $this->propertyData['Latitude']; ?>,<?php echo $this->propertyData['Longitude']; ?>&markers=<?php echo $this->propertyData['Latitude']; ?>,<?php echo $this->propertyData['Longitude']; ?>&zoom=15&size=260x260&key=ABQIAAAAl_Aitbh_FmAMmvuNExykuhSjNcUrUZ-6kYInI1ehG03OURsFFhRE5i5KCFq-jafrZQFgGpa_h7en4g&sensor=false" alt="" style="padding:5px;" />
+	<br /><br />
+	
+	<?php if($this->propertyData['Image_Name'] != "") { ?>
+	<img src="<?php echo $this->propertyData['Image_Url'] . '/' . $this->propertyData['Image_Dir'] . '/'. $this->propertyData['Image_Name']; ?>" width="260" height="190" alt="" style="padding:5px;" /><br />
+	<br /><br />
+	<?php } ?>
+	<h3>User Photos</h3>
+	<?php if(!$this->userPhotos) echo "No Photos of this property have been uploaded"; ?>
+	<?php echo $this->partialLoop('property/_sidebarPhotos.phtml', $this->userPhotos); ?>
+	<div style="text-align:right; padding-right:10px;">
+	<?php if($identity) { ?>
+		<a href="<?php echo $this->url(
+			array(
+				'controller'=>'property',
+				'action'=>'photoUpload',
+				'module'=>'default',
+				'ssl'=> $this->propertyData["Square"] . $this->propertyData["Suffix"] . $this->propertyData["Lot"],
+			), 'default', true
+		); ?>">Upload Photo</a> <?php } ?>
+		
+		<?php if($identity && $this->userPhotos) { echo "&nbsp; | &nbsp;"; } ?>
+		
+		<?php if($this->userPhotos) {?>
+			<a href="<?php 
+				echo $this->url(array(
+					'controller'=>'property',
+					'action'=>'photos',
+					'module'=>'default',
+					'ssl'=>$this->propertyData["Square"] . $this->propertyData["Suffix"] . $this->propertyData["Lot"],
+				), 'default', true); ?>">More Photos</a>
+		<?php } ?>
+	</div>
+	<br /><br />
+	<?php if($identity) { ?>
+	<h3>Leave a Comment</h3>
+	<?php echo $this->commentForm; ?>
+	<br /><br />
+	<?php } ?>
+</div>

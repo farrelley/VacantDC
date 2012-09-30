@@ -1,0 +1,14 @@
+
+<li><a class="current" href="<?php echo $this->url(array('controller' =>  'index', 'action' => 'index', 'module' => 'default'), '', true); ?>">Home</a></li>
+<?php if($this->Email_Address != "") { ?> 
+<li><a href="<?php echo $this->url(array('controller' => 'property', 'action' => 'submit', 'module' => 'default'), '', true); ?>">Submit Vacant Lot</a></li>
+<?php } ?>
+<li><a href="<?php echo $this->url(array('controller' => 'about', 'action' => 'index', 'module' => 'default'), '', true); ?>">About</a></li>
+
+<?php if($this->Email_Address != "") { ?>
+	<li><a href="<?php echo $this->url(array('controller' => 'account', 'action' => 'index', 'module' => 'default'), '', true); ?>">My Account</a></li>
+	<li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout', 'module' => 'default'), '', true); ?>">logout</a></li>
+<?php } else { ?>
+	<li><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login', 'module' => 'default'), '', true); ?>">Login</a></li>
+<?php } ?>
+

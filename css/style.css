@@ -1,0 +1,295 @@
+/*
+
+	project: watchthis!
+	author: luka cvrk (www.solucija.com)
+
+*/
+
+/* global reset */
+* { 
+	margin: 0; 
+	padding: 0; 
+}
+
+* :focus, :active { 
+	outline: 0; 
+}
+
+body { 
+	font: .9em Georgia, "Times New Roman", Sans-Serif; 
+	background: #fff url(../images/bg.gif) repeat-x; 
+	color: #333; 
+}
+
+a { 
+	color: #A82A15; 
+	text-decoration: none; 
+}
+
+img { 
+	border: 0; 
+}
+
+h1 {  
+	float: left; 
+	margin: 20px 0 50px; 
+	font-size: 4em; 
+	color: #fff; 
+}
+
+h2 { 
+	font-size: 2.4em; 
+	font-weight: normal; 
+	margin: 0 0 20px; 
+}
+
+h2 a:hover { 
+	background: #A82A15; 
+	color: #fff; 
+}
+
+.hr { 
+	color: #ccc; 
+}
+
+p { 
+	margin: 5px 0 15px; 
+	line-height: 1.6em;
+}
+
+#content { 
+	margin: 0 auto; 
+	width: 900px; 
+}
+
+#top { 
+	float: right; 
+	margin: 38px 0 30px 0;
+}
+
+#top li { 
+	list-style: none; 
+	display: inline; 
+}
+
+#top li a { 
+	float: left; 
+	padding: 6px 20px; 
+	margin: 3px 2px 0 0; 
+	color: #ccc;
+}
+
+#top li a.current { 
+	/*color: #fff; 
+	background: #A82A15;*/
+}
+
+#top li a:hover { 
+	background: #808080; 
+	color: #fff;
+}
+
+#intro { 
+	clear: both; 
+	padding: 15px 0 1px 20px; 
+	border: 1px solid #dedede; 
+	font-size: 1.3em; 
+	background: #eee; 
+	margin: 0 0 30px; 
+}
+
+#main-search {
+	float: left;
+	width: 900px;
+	margin: 0 0 15px;
+}
+
+#main-search  p {
+	padding: 5px;	
+}
+
+#main-search .search-section {
+	float: left;
+	width: 280px;
+	margin: 0 0 15px;
+}
+
+#main-search .padit{
+	margin-right:25px;
+}
+
+#left { 
+	float: left; 
+	width: 600px; 
+	margin: 0 0 15px;
+}
+
+#left h4 {
+	margin: 10px 0px 2px 0px;
+}
+
+#left table {
+	width:100%;
+}
+#left table td {
+	border:0px solid #ccc;
+}
+
+#main-search table {
+	width:500px;
+}
+#main-search td {
+	padding:4px;
+}
+
+
+
+
+
+#right { 
+	float: right; 
+	width: 280px;
+}
+
+#right h3 { 
+	border-bottom: 1px solid #ccc; 
+	margin: 0 0 10px;
+}
+
+#right img, #left img { 
+	margin: 0 3px 3px 0; 
+	border: 2px solid #eee;
+	padding: 2px; 
+}
+
+#right li { 
+	list-style: none; 
+}
+
+#right li a { 
+	display: block; 
+	border-bottom: 1px solid #ccc; 
+	padding: 5px 5px; 
+}
+
+#footer { 
+	clear: both; 
+	padding: 15px 0; 
+	border-top: 1px solid #ccc;
+}
+
+#r { 
+	float: right;
+}
+
+#clear {
+	clear:both;
+}
+
+
+
+.commentlist li {
+	font-size:1em;
+	list-style:none;
+	margin: 0;
+	padding: 7px 0 3px 0;	
+	border-bottom: #ddd 1px solid;
+	position:relative;
+	clear:both;
+	overflow:hidden;
+}
+
+.commentlist li em {
+	font-size:.9em;
+}
+
+.commentlist li p {
+	/*font-size:1em;*/
+}
+html .commentlist li {
+	height: 1%;
+}
+.commentlist li.thread-alt {
+	background:#f9f9f9;
+}
+.commentlist li .cmtinfo { 
+	float:left;
+	width:135px;
+	text-align:right;
+	overflow:hidden;
+}
+.commentlist li .cmtcontent { 
+	margin-left: 145px;
+	clear:right;
+}
+html .commentlist li .cmtcontent, html .commentlist li .cmtinfo { 
+	height: 1%;
+}
+.commentlist li .cmtinfo em {
+	color:#666;
+	font-style:normal;
+}
+.commentlist li .cmtinfo em strong {
+	color:;
+}
+.commentlist li cite {
+	font-style:italic;
+	font-weight:bold;
+}
+
+ol.commentlist li {
+	width:600px;
+}
+
+/* List  */
+ol
+{
+  width: 60em;  /* room for 3 columns */
+}
+ol li
+{
+  float: left;
+  width: 20em;  /* accommodate the widest item */
+}
+/* stop the floating after the list */
+div.wrapper br
+{
+  clear: left;
+}
+/* separate the list from what follows it */
+div.wrapper
+{
+  margin-bottom: 1em;
+}
+
+
+
+#main-search .step2 {
+	float:right;
+	margin-right:20px;
+	background: url("/images/flowchart.gif");
+	height:419px;
+	width:100px;
+}
+
+#main-search .step3 {
+	float:right;
+	margin-right:20px;
+	background: url("/images/flowchart.gif") -115px 0px;
+	height:419px;
+	width:100px;
+}
+#main-search .step4 {
+	float:right;
+	margin-right:20px;
+	background: url("/images/flowchart.gif") -233px 0px;
+	height:419px;
+	width:100px;
+}
+#main-search .step5 {
+	float:right;
+	margin-right:20px;
+	background: url("/images/flowchart.gif") -349px 0px;
+	height:419px;
+	width:100px;
+}

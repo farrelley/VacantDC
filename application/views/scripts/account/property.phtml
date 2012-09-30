@@ -1,0 +1,91 @@
+<div id="main-search">
+<h2><a href="">Service Status For Submitted Vacant Lot</a></h2>
+<div class="step<?php echo $this->step; ?>"></div>
+<table>
+	<tr> 
+		<td>SSL:</td>
+		<td><?php echo $this->property['SSL']; ?></td>
+	</tr>
+	<tr> 
+		<td>Address Id:</td>
+		<td><?php echo $this->property['AID']; ?></td>
+	</tr>
+	<tr> 
+		<td>Submitted:</td>
+		<td><?php echo $this->isoDate($this->property['Create_Datetime']); ?></td>
+	</tr>
+	<tr> 
+		<td>Service Token:</td>
+		<td><?php echo $this->property['Token']; ?></td>
+	</tr>
+	<tr> 
+		<td>Service Id:</td>
+		<td>
+		<?php if($this->property['Service_Id'] == "") { ?>
+		<a href="<?php 
+			echo $this->url(array(
+				'controller'=>'account',
+				'action'=>'serviceIdRequest',
+				'module'=>'default',
+				'token'=>$this->property['Token'],
+			), 'default', true);
+		?>">Check for Service Id</a>
+		<?php } else { 
+		echo $this->property['Service_Id'];
+		}?>
+		</td>
+	</tr>
+	
+	<tr> 
+		<td>Service Priority:</td>
+		<td><?php echo $this->serviceStatus['servicepriority']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Service Description:</td>
+		<td><?php echo $this->serviceStatus['servicecodedescription']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Service Type Description:</td>
+		<td><?php echo $this->serviceStatus['servicetypecodedescription']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Service Order Date:</td>
+		<td><?php echo $this->serviceStatus['serviceorderdate']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Service Status:</td>
+		<td><?php echo $this->serviceStatus['serviceorderstatus']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Agency Assigned To:</td>
+		<td><?php echo $this->serviceStatus['agencyabbreviation']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Resolution:</td>
+		<td><?php echo $this->serviceStatus['resolution']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Resolution Date:</td>
+		<td><?php echo $this->serviceStatus['resolutiondate']; ?></td>
+	</tr>
+	
+	<tr> 
+		<td>Service Due Date:</td>
+		<td><?php echo $this->serviceStatus['serviceduedate']; ?></td>
+	</tr>
+ 
+    <tr> 
+		<td>Service Notes:</td>
+		<td><?php echo $this->serviceStatus['servicenotes']; ?></td>
+	</tr>
+
+</table>
+
+</div>

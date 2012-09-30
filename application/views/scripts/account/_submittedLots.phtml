@@ -1,0 +1,14 @@
+<tr> 
+	<td><?php echo $this->Id; ?></td>
+	<td><?php echo $this->SSL; ?></td>
+	<td><?php echo $this->AID; ?>
+	<td><?php echo $this->isoDate($this->Create_Datetime); ?></td>
+	<td><a href="<?php 
+		echo $this->url(array(
+			'controller'=>'account',
+			'action'=>'property',
+			'module'=>'default',
+			'id'=>$this->Id,),
+		'default',
+		true); ?>">Check Status</a></td>
+</tr>

@@ -1,0 +1,57 @@
+<div id="intro">
+	<p>"My goal is to eliminate all vacant property in the District and put these homes and buildings back into productive use." - Mayor Fenty</p>
+</div>
+	
+<div id="main-search">
+	<h2><a href="#">Search Vacant Properties By:</a></h2>
+	
+	<div class="search-section padit">
+		<h3>Search Interactive Map</h3>
+		<div style="border:1px solid #CCC;">
+			<img src="images/map.gif" width="280" height="100" />
+			<p>View the <a href="<?php 
+				echo $this->url(array(
+					'controller' => 'property',
+					'action' => 'map',
+					'module' => 'default'), '', true); ?>">Interactive Map.</a>
+			<br />
+				You can also view a list of properties 
+				<a href="<?php 
+				echo $this->url(array(
+					'controller' => 'property',
+					'action' => 'index',
+					'module' => 'default'), '', true);
+				?>">here.</a>
+			</p>
+		</div>
+	</div>
+			
+	<div class="search-section padit">
+		<h3>Searching By Address</h3>
+		<div style="border:1px solid #CCC;">
+			<img src="images/vacant.gif" />
+			<p>Enter and address for a vacant property</p>
+			<?php if(null !== $this->addressMessage) : ?>
+				<ul>
+				<?php foreach($this->addressMessage as $msg) : ?>
+					<li><?php echo $msg; ?></li>
+				<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+			<div style="padding:0px 10px 10px 10px"><?php echo $this->addressSearchForm; ?></div>
+			
+		</div>
+	</div>
+	
+	<div class="search-section">
+		<h3>Latest on the Blog</h3>
+		<div style="border:1px solid #CCC;">
+			<img src="images/owner.gif" width="280" height="100" />
+			 
+			<h4 style="padding:5px;"><?php echo $this->blogArticle['title'] ?></h4>
+			<p><?php echo substr($this->blogArticle['text'],0,strpos($this->blogArticle['text'],'[break]')); ?></p>
+			<p><a href="http://blog.vacantdc.com/">Read More</a></p>
+			
+		</div>
+	</div>
+</div>

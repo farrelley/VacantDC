@@ -1,0 +1,18 @@
+<li>
+
+<a href="<?php echo $this->url(
+	array(
+		'module' => 'default', 
+		'controller' => 'property', 
+		'action' => 'view', 
+		'ssl' => $this->Square . $this->Suffix . $this->Lot), 
+		'', 
+		true
+	); ?>">
+
+	<?php echo $this->Address_Number; ?>	
+	<?php echo ucwords(strtolower($this->Street_Name)); ?> 
+	<?php echo ucwords(strtolower($this->Street_Type)); ?> 
+	<?php echo strtoupper($this->Quadrant); ?>
+</a>
+</li>
